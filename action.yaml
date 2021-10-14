@@ -1,0 +1,33 @@
+name: "Google API Linter"
+description: ""
+
+branding:
+  icon: "check"
+  color: "green"
+
+author: "Svetlin Ralchev"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+
+inputs:
+  working_directory:
+    description: "Directory to run the action on, from the repo root."
+    default: '.'
+  proto_directory:
+    description: "Directory for searching proto imports."
+    required: false
+  descriptor_file:
+    description: "The path to the file descriptor set for searching proto imports."
+    required: false
+  proto_file:
+    description: "The path to the proto file."
+    required: true
+  config_file:
+    description: "The path to the config file."
+    required: true
+
+outputs:
+  google-api-linter-return-code:
+    description: 'linter command return code'
