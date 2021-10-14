@@ -22,7 +22,7 @@ inputs:
   descriptor_file:
     description: "The path to the file descriptor set for searching proto imports."
     required: false
-    default: './*.buf'
+    default: './*.bin'
   proto_file:
     description: "The path to the proto file."
     required: false
