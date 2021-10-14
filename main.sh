@@ -28,7 +28,7 @@ if [ -n "${INPUT_WORKING_DIRECTORY}" ]; then
 fi
 
 # format the command according to the provided arguments
-api-linter "${INPUT_PROTO_FILE}" ${CONFIG_FILE_OPTION}
+api-linter ${INPUT_PROTO_FILE} ${CONFIG_FILE_OPTION}
 
 google_api_linter_return="${PIPESTATUS[0]}"
 
