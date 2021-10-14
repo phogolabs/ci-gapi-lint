@@ -15,8 +15,9 @@ LABEL org.opencontainers.image.version=$APP_VERSION
 LABEL org.opencontainers.image.description=$APP_DESCRIPTION
 LABEL org.opencontainers.image.source=$APP_SOURCE
 
-# add the required packages
-RUN apk add --no-cache bash=5.1.4-r0 findutils=4.8.0-r1 git=2.32.0-r0 go=1.16.8-r0
+# https://stackoverflow.com/questions/34729748/installed-go-binary-not-found-in-path-on-alpine-linux-docker
+RUN mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
+
 # download gokart
 ADD https://github.com/googleapis/api-linter/releases/download/v${APP_VERSION}/api-linter-${APP_VERSION}-linux-amd64.tar.gz /tmp/google-api-linter.tar.gz
 # unpack the package
