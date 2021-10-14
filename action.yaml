@@ -14,6 +14,7 @@ runs:
 inputs:
   working_directory:
     description: "Directory to run the action on, from the repo root."
+    required: false
     default: '.'
   proto_directory:
     description: "Directory for searching proto imports."
@@ -21,12 +22,15 @@ inputs:
   descriptor_file:
     description: "The path to the file descriptor set for searching proto imports."
     required: false
+    default: './*.buf'
   proto_file:
     description: "The path to the proto file."
-    required: true
+    required: false
+    default: './*.proto'
   config_file:
     description: "The path to the config file."
-    required: true
+    required: false
+    default: './*.lint.yaml'
 
 outputs:
   google-api-linter-return-code:
