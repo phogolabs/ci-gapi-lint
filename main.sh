@@ -27,9 +27,9 @@ if [ -n "${INPUT_WORKING_DIRECTORY}" ]; then
   cd "${INPUT_WORKING_DIRECTORY}" || exit
 fi
 
-# format the command according to the provided arguments
+# shellcheck disable=SC2086
 api-linter ${INPUT_PROTO_FILE} ${CONFIG_FILE_OPTION}
 
 google_api_linter_return="${PIPESTATUS[0]}"
 
-echo ::set-output name=google-api-linter-return-code::"${google_api_linter_return}"
+echo "google-api-linter-return-code=${google_api_linter_return}" >> "$GITHUB_OUTPUT"
